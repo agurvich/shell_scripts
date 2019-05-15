@@ -1,13 +1,16 @@
-#!/bin/bash 
-#MSUB -N alex_g_interactive_session
-#MSUB -q cosmoshimem
-#MSUB -A b1026
-#MSUB -l walltime=48:00:00 
-#MSUB -l nodes=1:ppn=24
-#MSUB -l partition=quest5
+#!/bin/bash
+#SBATCH -o log_out.o%j       # output and error file name (%j expands to jobID)
+#SBATCH -N 1              # total number of mpi tasks requested
+#SBATCH -n 1              # total number of mpi tasks requested
+#SBATCH -p skx-normal     # queue (partition) -- normal, development, etc.
+#SBATCH -t 48:00:00        # run time (hh:mm:ss) - 48 hours
+#SBATCH --mail-user=agurvich@u.northwestern.edu
+#SBATCH -A TG-AST140023
+#SBATCH -J m12i_scales           # job name
 
-fname='h113'
-cd /home/abg6257/starformation/scripts
-python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=1
-python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=.3
-python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=.1
+fname='m12i_res7100'
+cd $HOME/starformation/scripts
+#python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 
+#python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=1
+#python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=.3
+python makeFullHistory.py --snaplow=700 --savename=$fname --mps=1 --patch=.1
