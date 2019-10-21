@@ -12,7 +12,7 @@ fname="${gal_str}_res7100"
 
 
 snapnums=( 564 567 570 573 576 579 582 585 588 600)
-patches=( 3 1 0.3 0.1 )
+patches=( 3 )  #1 0.3 0.1 )
 for snapnum in "${snapnums[@]}"
 do
     for patch in "${patches[@]}"
@@ -20,8 +20,7 @@ do
         cat preamble.sh > temp.sh 
         echo "#SBATCH -J ${gal_str}_${snapnum}_${patch}           # job name" >> temp.sh
         echo "cd $HOME/starformation/scripts" >> temp.sh
-        echo "export NUMBA_NUM_THREADS=24"
         echo "python makeFullHistory.py --snaplow=$snapnum --snaphigh=$snapnum --savename=$fname --mps=1 --patch=${patch}" >> temp.sh
-        less temp.sh
+        sbatch temp.sh
     done
 done
