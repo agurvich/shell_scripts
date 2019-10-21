@@ -10,7 +10,7 @@
 
 fname='m12i_res7100'
 cd $HOME/starformation/scripts
-#python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4
-#python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=1
-#python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=.3
-python makeFullHistory.py --snaplow=700 --savename=$fname --mps=1 --patch=.1
+python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4
+python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=1
+python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=.3
+#python makeFullHistory.py --snaplow=700 --savename=$fname --mps=2 --patch=.1
