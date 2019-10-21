@@ -1,4 +1,6 @@
 
+
+
 file_arr=(
 snapdir_564 
 snapdir_567 
@@ -17,7 +19,7 @@ do
     #du -sh $fname
     #/projects/b1026/agurvich/snaps/m12i_res7100/output
     src=/scratch/projects/xsede/GalaxiesOnFIRE/core/m12i_res7100/output/$fname
-    dst=/projects/b1026/agurvich/snaps/m12i_res7100/output/$fname
+    dst=/projects/b1026/agurvich/snaps/m12i_res7100/output/
     echo $src 
     echo $dst
     rsync -r --progress -u $src abg6257@quest.northwestern.edu:$dst

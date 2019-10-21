@@ -10,6 +10,9 @@
 
 fname='m12i_res7100'
 cd $HOME/starformation/scripts
+
+export NUMBA_NUM_THREADS=23
+
 python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4
 python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=1
 python makeFullHistory.py --snaplow=700 --savename=$fname --mps=4 --patch=.3
