@@ -13,4 +13,4 @@
 
 cd ${HOME}/starformation/scripts
 
-python paperPlots.py
+python paperPlots.py --appendix=True

@@ -9,7 +9,7 @@ function memory(){
 
 bar=`memory`
 foo=`interactive_time`
-echo $foo "( $bar )"
+echo -e you are doing a good job $foo #"( $bar )"
 
 #watch -n 1 'squeue -u $USER -o "%.20j %.10L" | grep idv' 
 #echo -e you are doing a good job '\t' `interactive_time`
