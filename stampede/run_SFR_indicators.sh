@@ -23,11 +23,20 @@
 ## core: m10q_res250 m10v_res250 m11q_res7100 m11v_res7100 m12i_res7100 m12f_res7100
 ## metal_diffusion: 
 #fname='m12f_res7100'
-metal_diffusion=False
-cd $HOME/SF_indicators
 
-fnames=(m10q_res250 m10v_res250 m11q_res7100 m11v_res7100 m12i_res7100 m12f_res7100)
+# m10v_res250 m11v_res7100
+# m12m_res7100 m12r_res7100 m12w_res7100 m12z_res4200
+
+fnames=(m12f_res7100 m12i_res7100 m12b_res7100 m12c_res7100 m10q_res250 m11q_res7100)
+
+this_command=bash
+preamble=preamble.sh
+
 for fname in "${fnames[@]}"
 do
-    python run.py --savename=${fname} --metal_diffusion=${metal_diffusion}
+    cat ${preamble} > temp.sh 
+    echo "#SBATCH -J ${fname}    # job name" >> temp.sh
+    echo "cd $HOME/SF_indicators" >> temp.sh
+    echo "python run.py --savename=$fname" >> temp.sh
+    ${this_command} temp.sh
 done
